@@ -8,6 +8,12 @@ interface SearchWrapperProps {
   scrollYProgress: MotionValue<number>;
 }
 
+const TYPING_WORDS = [
+  "What is my ROAS last 7 days?", 
+  "Please create ad creatives for these products based on my current winning angles", 
+  "Create a streetwear ad creative for my best selling product"
+];
+
 export function SearchWrapper({ scrollYProgress }: SearchWrapperProps) {
   const scale = useTransform(scrollYProgress, [0.45, 0.7], [0.8, 1], {
     ease: cubicBezier(0.83, 0, 0.17, 1),
@@ -40,11 +46,7 @@ export function SearchWrapper({ scrollYProgress }: SearchWrapperProps) {
             <TypingAnimation 
               deleteSpeed={30} 
               typeSpeed={60} 
-              words={[
-                "What is my ROAS last 7 days?", 
-                "Please create ad creatives for these products based on my current winning angles", 
-                "Create a streetwear ad creative for my best selling product"
-              ]} 
+              words={TYPING_WORDS} 
               loop 
             />
           </div>
