@@ -52,9 +52,7 @@ export function Marquee({
   const containerRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
-    if (!pauseOnHover) return
-
-    targetSpeedRef.current = isHovered ? 0.05 : 1
+    targetSpeedRef.current = pauseOnHover && isHovered ? 0.05 : 1
     lastTimeRef.current = Date.now()
 
     const animate = () => {
@@ -74,8 +72,21 @@ export function Marquee({
       // Update progress based on current speed
       // Base speed: moves 100% in 40 seconds, so speed per second = 100/40 = 2.5% per second
       const baseSpeedPerSecond = 100 / 40
-      const progressDelta = baseSpeedPerSecond * newSpeed * deltaTime * (reverse ? 1 : -1)
-      progressRef.current = (progressRef.current + progressDelta) % 100
+      const progressDelta = baseSpeedPerSecond * newSpeed * deltaTime
+      
+      if (reverse) {
+        // Move right: 0 -> 100 -> 0
+        progressRef.current += progressDelta
+        while (progressRef.current >= 100) {
+          progressRef.current -= 100
+        }
+      } else {
+        // Move left: 0 -> -100 -> 0
+        progressRef.current -= progressDelta
+        while (progressRef.current <= -100) {
+          progressRef.current += 100
+        }
+      }
 
       // Apply transform to all items
       itemRefs.current.forEach((item) => {

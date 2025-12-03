@@ -14,6 +14,7 @@ import { Play } from "lucide-react";
 import { FeatureShuffle } from "@/components/feature-shuffle";
 import { StatSection, StatCard } from "@/components/stat-section";
 import { TestimonialCard } from "@/components/testimonial-card";
+import Image from "next/image";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -44,9 +45,9 @@ export default function Home() {
   return (
     <div>
       <main>
-        {/*<div className="bg-highlight text-highlight-foreground text-sm w-full p-2 mb-4 flex items-center justify-center">
+        <div className="bg-highlight text-highlight-foreground text-sm w-full p-2 mb-4 flex items-center justify-center">
           <p>Announcing our 8M Series A with Magnus Carlsen and others</p>
-        </div>*/}
+        </div>
         <header className="sticky top-4 left-0 right-0 flex justify-center z-50">
           <motion.div
             layout
@@ -266,6 +267,42 @@ export default function Home() {
               company="Beauty Brands Inc"
             />
           </Marquee>
+        </section>
+        <section className="dark bg-background text-foreground">
+          <div className="py-24 px-4 max-w-screen-xl mx-auto">
+            <div className="flex flex-col items-center w-full gap-3 text-center text-balance">
+              <h2 className="font-semibold text-4xl leading-tight max-w-lg">Leading AI Creatives that scale brands</h2>
+              <p className="text-muted-foreground max-w-lg">Equiping brand owners with a Creative volume to outperform the competiton, or supercharges inhouse Creative teams</p>
+            </div>
+          </div>
+          <div className="relative">
+            <div className="absolute inset-y-0 left-0 w-xs bg-gradient-to-r from-background to-transparent z-10"></div>
+            <div className="absolute inset-y-0 right-0 w-xs bg-gradient-to-l from-background to-transparent z-10"></div>
+            <Marquee reverse repeat={3} className="[--duration:120s]">
+              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_01.jpg" alt="AI Creatives" width={400} height={500} />
+              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_02.jpg" alt="AI Creatives" width={400} height={500} />
+              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_03.jpg" alt="AI Creatives" width={400} height={500} />
+              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_04.jpg" alt="AI Creatives" width={400} height={500} />
+              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_05.jpg" alt="AI Creatives" width={400} height={500} />
+              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_06.jpg" alt="AI Creatives" width={400} height={500} />
+            </Marquee>
+            <Marquee repeat={3} className="[--duration:120s]">
+              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_07.jpg" alt="AI Creatives" width={400} height={500} />
+              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_08.jpg" alt="AI Creatives" width={400} height={500} />
+              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_09.jpg" alt="AI Creatives" width={400} height={500} />
+              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_10.jpg" alt="AI Creatives" width={400} height={500} />
+              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_11.jpg" alt="AI Creatives" width={400} height={500} />
+              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_12.jpg" alt="AI Creatives" width={400} height={500} />
+            </Marquee>
+            <Marquee reverse repeat={3} className="[--duration:120s]">
+              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_13.jpg" alt="AI Creatives" width={400} height={500} />
+              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_14.jpg" alt="AI Creatives" width={400} height={500} />
+              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_15.jpg" alt="AI Creatives" width={400} height={500} />
+              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_16.jpg" alt="AI Creatives" width={400} height={500} />
+              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_17.jpg" alt="AI Creatives" width={400} height={500} />
+              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_18.jpg" alt="AI Creatives" width={400} height={500} />
+            </Marquee>
+          </div>
         </section>
         <div className="min-h-screen"></div>
       </main>
