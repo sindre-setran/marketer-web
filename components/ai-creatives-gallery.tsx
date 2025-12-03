@@ -40,10 +40,9 @@ interface MarqueeRowProps {
   children: React.ReactNode;
   reverse?: boolean;
   repeat?: number;
-  rowIndex: number;
 }
 
-function MarqueeRow({ children, reverse, repeat = 3, rowIndex }: MarqueeRowProps) {
+function MarqueeRow({ children, reverse, repeat = 3 }: MarqueeRowProps) {
   const [isVisible, setIsVisible] = useState(false);
   const rowRef = useRef<HTMLDivElement>(null);
 
@@ -77,8 +76,8 @@ function MarqueeRow({ children, reverse, repeat = 3, rowIndex }: MarqueeRowProps
     <div ref={rowRef}>
       <Marquee reverse={reverse} repeat={repeat}>
         {React.Children.map(children, (child) => {
-          if (React.isValidElement(child)) {
-            return React.cloneElement(child, { isVisible } as any);
+          if (React.isValidElement<AnimatedImageProps>(child)) {
+            return React.cloneElement(child, { isVisible });
           }
           return child;
         })}
@@ -139,7 +138,7 @@ export function AICreativesGallery() {
       <div className="relative">
         <div className="absolute inset-y-0 left-0 w-xs bg-gradient-to-r from-background to-transparent z-10 transition-colors duration-500"></div>
         <div className="absolute inset-y-0 right-0 w-xs bg-gradient-to-l from-background to-transparent z-10 transition-colors duration-500"></div>
-        <MarqueeRow reverse repeat={3} rowIndex={0}>
+        <MarqueeRow reverse repeat={3}>
           <AnimatedImage src="/img/ad/ad_01.jpg" alt="AI Creatives" index={0} isVisible={false} />
           <AnimatedImage src="/img/ad/ad_02.jpg" alt="AI Creatives" index={1} isVisible={false} />
           <AnimatedImage src="/img/ad/ad_03.jpg" alt="AI Creatives" index={2} isVisible={false} />
@@ -147,7 +146,7 @@ export function AICreativesGallery() {
           <AnimatedImage src="/img/ad/ad_05.jpg" alt="AI Creatives" index={4} isVisible={false} />
           <AnimatedImage src="/img/ad/ad_06.jpg" alt="AI Creatives" index={5} isVisible={false} />
         </MarqueeRow>
-        <MarqueeRow repeat={3} rowIndex={1}>
+        <MarqueeRow repeat={3}>
           <AnimatedImage src="/img/ad/ad_07.jpg" alt="AI Creatives" index={0} isVisible={false} />
           <AnimatedImage src="/img/ad/ad_08.jpg" alt="AI Creatives" index={1} isVisible={false} />
           <AnimatedImage src="/img/ad/ad_09.jpg" alt="AI Creatives" index={2} isVisible={false} />
@@ -155,7 +154,7 @@ export function AICreativesGallery() {
           <AnimatedImage src="/img/ad/ad_11.jpg" alt="AI Creatives" index={4} isVisible={false} />
           <AnimatedImage src="/img/ad/ad_12.jpg" alt="AI Creatives" index={5} isVisible={false} />
         </MarqueeRow>
-        <MarqueeRow reverse repeat={3} rowIndex={2}>
+        <MarqueeRow reverse repeat={3}>
           <AnimatedImage src="/img/ad/ad_13.jpg" alt="AI Creatives" index={0} isVisible={false} />
           <AnimatedImage src="/img/ad/ad_14.jpg" alt="AI Creatives" index={1} isVisible={false} />
           <AnimatedImage src="/img/ad/ad_15.jpg" alt="AI Creatives" index={2} isVisible={false} />
