@@ -26,7 +26,7 @@ export function SearchWrapper({ scrollYProgress }: SearchWrapperProps) {
   const filter = useTransform(scrollYProgress, [0.45, 0.6], ["blur(8px)", "blur(0px)"]);
 
   const ballOpacity = useTransform(scrollYProgress, [0.45, 1], [0, 1]);
-  const ballBlur = useTransform(scrollYProgress, [0.45, 1], ["blur(24px)", "blur(128px)"]);
+  const ballBlur = useTransform(scrollYProgress, [0.45, 1], ["blur(24px)", "blur(96px)"]);
   const ballScale = useTransform(scrollYProgress, [0.45, 1], [0.5, 1]);
 
   return (

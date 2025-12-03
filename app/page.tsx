@@ -11,6 +11,9 @@ import { SearchWrapper } from "@/components/search-wrapper";
 import { Marquee } from "@/components/ui/marquee"
 import LogoContainer from "@/components/logoContainer";
 import { Play } from "lucide-react";
+import { FeatureShuffle } from "@/components/feature-shuffle";
+import { StatSection, StatCard } from "@/components/stat-section";
+import { TestimonialCard } from "@/components/testimonial-card";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,7 +44,10 @@ export default function Home() {
   return (
     <div>
       <main>
-        <header className="fixed top-4 left-0 right-0 flex justify-center z-50">
+        {/*<div className="bg-highlight text-highlight-foreground text-sm w-full p-2 mb-4 flex items-center justify-center">
+          <p>Announcing our 8M Series A with Magnus Carlsen and others</p>
+        </div>*/}
+        <header className="sticky top-4 left-0 right-0 flex justify-center z-50">
           <motion.div
             layout
             transition={headerTransition as Transition}
@@ -63,7 +69,7 @@ export default function Home() {
                   <Link href="/pricing">Pricing</Link>
                 </li>
                 <li>
-                  <Link href="/resources">Resources</Link>
+                  <Link href="/resources">Company</Link>
                 </li>
               </ul>
             </motion.nav>
@@ -77,9 +83,9 @@ export default function Home() {
             </motion.div>
           </motion.div>
         </header>
-        <div className="pt-56 pb-40 relative flex flex-col items-center gap-8">
+        <div className="pt-32 pb-36 relative flex flex-col items-center gap-8">
           <div className="mx-auto inline-flex flex-col items-center gap-1.5">
-            <h2 className="text-xs font-[500] text-muted-foreground">Official Partners</h2>
+            <h2 className="text-xs font-[500] text-muted-foreground">Official partners</h2>
             <ul className="flex items-center gap-1.5">
               <li className="border rounded-lg">
                 <svg className="scale-60" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -98,12 +104,12 @@ export default function Home() {
                   <path opacity="0.07" d="M18.0591 16.8931L17.8091 17.2681C18.4007 18.1181 19.0674 19.1348 19.7841 20.3098C19.8591 20.1681 19.9424 20.0265 20.0174 19.8848C19.3257 18.7515 18.6591 17.7431 18.0591 16.8931ZM20.5257 13.2765C21.1341 14.0348 21.7507 14.8931 22.4007 15.8598C22.4841 15.7265 22.5674 15.6015 22.6507 15.4765C22.0091 14.5265 21.3841 13.6765 20.7841 12.9265C20.6924 13.0431 20.6091 13.1598 20.5257 13.2765Z" fill="#171717"/>
                   <defs>
                   <linearGradient id="paint0_linear_5621_1109" x1="35.2531" y1="20.625" x2="11.2773" y2="20.625" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#0081FB"/>
-                  <stop offset="0.995" stop-color="#0064E1"/>
+                  <stop stopColor="#0081FB"/>
+                  <stop offset="0.995" stopColor="#0064E1"/>
                   </linearGradient>
                   <linearGradient id="paint1_linear_5621_1109" x1="6.36266" y1="27.3917" x2="6.36266" y2="10.8434" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#0081FB"/>
-                  <stop offset="0.995" stop-color="#0064E1"/>
+                  <stop stopColor="#0081FB"/>
+                  <stop offset="0.995" stopColor="#0064E1"/>
                   </linearGradient>
                   </defs>
                 </svg>
@@ -124,7 +130,7 @@ export default function Home() {
             <p className="text-center text-muted-foreground max-w-lg mx-auto font-[500]">
               Replace costly agencies and scattered tools with one AI-powered system built to help your brand scale profitably.
             </p>
-            <div className="flex items-center gap-2 pt-4">
+            <div className="flex items-center gap-2 pt-2">
               <Button asChild size="xl">
                 <Link href="/book-demo">Get started</Link>
               </Button>
@@ -149,7 +155,7 @@ export default function Home() {
               </svg>
               <p className="font-medium">1500+ Shopify App Installs</p>
             </li>
-            <li className="w-px h-6 bg-gray-300 rounded-full"></li>
+            <li className="w-px h-3.5 bg-gray-300 rounded-full"></li>
             <li>
               <p className="font-medium">400+ marketing agencies replaced</p>
             </li>
@@ -191,7 +197,77 @@ export default function Home() {
             <SearchWrapper scrollYProgress={scrollYProgress} />
           </div>
         </div>
-        <div className="min-h-screen bg-gray-100"></div>
+        <FeatureShuffle />
+        
+        <StatSection 
+          title="Consilidate your growth into one platform"
+          subheadline="Save time, cut costs and increase output"
+        >
+          <StatCard value={445} suffix="%" label="Creative output increase" col={1} row={1}>
+
+          </StatCard>
+          
+          <StatCard value={90} suffix="%" label="Cut in wasted adspend" col={2} row={1} rowSpan={3}>
+            <div className="w-full p-4 flex items-center justify-center">
+              <svg className="max-w-[440px]" viewBox="0 0 448 448" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="224" cy="32" r="32" fill="#224E3E"/>
+                <circle cx="224" cy="416" r="32" fill="#224E3E"/>
+                <ellipse cx="416" cy="228" rx="32" ry="32" transform="rotate(90 416 228)" fill="#224E3E"/>
+                <ellipse cx="32" cy="228" rx="32" ry="32" transform="rotate(90 32 228)" fill="#BFE8CF"/>
+                <circle cx="320" cy="389.349" r="32" transform="rotate(150 320 389.349)" fill="#224E3E"/>
+                <circle cx="128" cy="56.795" r="32" transform="rotate(150 128 56.795)" fill="#BFE8CF"/>
+                <circle opacity="0.9" cx="128.249" cy="389.41" r="32" transform="rotate(-150 128.249 389.41)" fill="#224E3E"/>
+                <circle cx="320.249" cy="56.8565" r="32" transform="rotate(-150 320.249 56.8565)" fill="#224E3E"/>
+                <circle cx="57.7231" cy="320.536" r="32" transform="rotate(-120 57.7231 320.536)" fill="#224E3E"/>
+                <circle cx="390.277" cy="128.536" r="32" transform="rotate(-120 390.277 128.536)" fill="#224E3E"/>
+                <circle cx="57.7231" cy="128.536" r="32" transform="rotate(-60 57.7231 128.536)" fill="#BFE8CF"/>
+                <circle cx="390.277" cy="320.536" r="32" transform="rotate(-60 390.277 320.536)" fill="#224E3E"/>
+              </svg>
+            </div>
+          </StatCard>
+          
+          <StatCard value={22} suffix="%" label="Average ROAS increase" col={1} row={2}>
+
+          </StatCard>
+          <StatCard value={18} suffix=" hours" label="Saved on average per week" col={1} row={3}>
+            
+          </StatCard>
+        </StatSection>
+        
+        {/* Testimonials Section */}
+        <section className="py-24 px-4 bg-muted">
+          <div className="max-w-7xl mx-auto mb-12 text-center">
+            <h2 className="font-semibold text-4xl leading-tight mb-3">
+              Trusted by growth teams worldwide
+            </h2>
+            <p className="text-muted-foreground">
+              See what our customers are saying about us
+            </p>
+          </div>
+          <Marquee pauseOnHover className="[--duration:60s]">
+            <TestimonialCard
+              quote="I think AI is going to be the most important marketing decision. Any company can make and picking a company is essential... I like these guys a lot. It's going to be a really good mood for us."
+              author="Len"
+              company="Jing Soda"
+            />
+            <TestimonialCard
+              quote="We've cut our agency costs by 80% and tripled our creative output. The AI understands our brand better than most humans."
+              author="Sarah"
+              company="Peak Apparel"
+            />
+            <TestimonialCard
+              quote="Game changer for our team. We went from spending 20 hours a week on ad creative to just 2 hours. The ROI is incredible."
+              author="Mike"
+              company="Outdoor Gear Co"
+            />
+            <TestimonialCard
+              quote="Finally, a platform that actually delivers on the AI promise. Our ROAS increased by 35% in the first month alone."
+              author="Jessica"
+              company="Beauty Brands Inc"
+            />
+          </Marquee>
+        </section>
+        <div className="min-h-screen"></div>
       </main>
     </div>
   );
