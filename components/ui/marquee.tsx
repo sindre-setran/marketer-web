@@ -51,6 +51,11 @@ export function Marquee({
   const lastTimeRef = useRef<number>(Date.now())
   const containerRef = useRef<HTMLDivElement | null>(null)
 
+  // Initialize progress based on direction
+  useEffect(() => {
+    progressRef.current = reverse ? -100 : 0
+  }, [reverse])
+
   useEffect(() => {
     targetSpeedRef.current = pauseOnHover && isHovered ? 0.05 : 1
     lastTimeRef.current = Date.now()
@@ -75,13 +80,13 @@ export function Marquee({
       const progressDelta = baseSpeedPerSecond * newSpeed * deltaTime
       
       if (reverse) {
-        // Move right: 0 -> 100 -> 0
+        // Move right (reverse direction): -100 -> 0 -> -100
         progressRef.current += progressDelta
-        while (progressRef.current >= 100) {
+        while (progressRef.current >= 0) {
           progressRef.current -= 100
         }
       } else {
-        // Move left: 0 -> -100 -> 0
+        // Move left (normal direction): 0 -> -100 -> 0
         progressRef.current -= progressDelta
         while (progressRef.current <= -100) {
           progressRef.current += 100

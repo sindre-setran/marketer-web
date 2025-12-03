@@ -45,9 +45,9 @@ export default function Home() {
   return (
     <div>
       <main>
-        <div className="bg-highlight text-highlight-foreground text-sm w-full p-2 mb-4 flex items-center justify-center">
+        {/*<div className="bg-highlight text-highlight-foreground text-sm w-full p-2 mb-4 flex items-center justify-center">
           <p>Announcing our 8M Series A with Magnus Carlsen and others</p>
-        </div>
+        </div>*/}
         <header className="sticky top-4 left-0 right-0 flex justify-center z-50">
           <motion.div
             layout
