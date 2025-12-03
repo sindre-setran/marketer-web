@@ -14,6 +14,7 @@ import { Play } from "lucide-react";
 import { FeatureShuffle } from "@/components/feature-shuffle";
 import { StatSection, StatCard } from "@/components/stat-section";
 import { TestimonialCard } from "@/components/testimonial-card";
+import { AICreativesGallery } from "@/components/ai-creatives-gallery";
 import Image from "next/image";
 
 export default function Home() {
@@ -52,7 +53,7 @@ export default function Home() {
           <motion.div
             layout
             transition={headerTransition as Transition}
-            className={cn("flex w-full mx-auto p-1 items-center justify-between bg-white/80 backdrop-blur-sm rounded-full transition-shadow duration-1000 ease-out",
+            className={cn("flex w-full mx-auto p-1 items-center justify-between bg-card/80 backdrop-blur-sm rounded-full transition-shadow duration-1000 ease-out",
             isScrolled ? "max-w-2xl shadow-lg" : "max-w-screen-lg shadow-none")}
           >
             <motion.div 
@@ -141,7 +142,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="mb-40 flex flex-col items-center gap-3 overflow-hidden">
+        <div className="mb-16 flex flex-col items-center gap-3 overflow-hidden">
           <Marquee>
             <LogoContainer logo="db" />
             <LogoContainer logo="moniker" />
@@ -162,6 +163,33 @@ export default function Home() {
             </li>
           </ul>
         </div>
+        <section className="max-w-7xl mx-auto py-16 px-4 grid grid-cols-3 gap-4 text-muted-foreground text-sm">
+          <div className="bg-accent flex items-center justify-center rounded-lg min-h-[400px]">
+            <p className="opacity-50">Value Prop/Feature Showcase</p>
+          </div>
+          <div className="bg-accent flex items-center justify-center rounded-lg min-h-[400px]">
+            <p className="opacity-50">Value Prop/Feature Showcase</p>
+          </div>
+          <div className="bg-accent flex items-center justify-center rounded-lg min-h-[400px]">
+            <p className="opacity-50">Value Prop/Feature Showcase</p>
+          </div>
+        </section>
+        <section className="max-w-7xl mx-auto py-16 px-4 space-y-8">
+          <div className="flex flex-col items-center w-full gap-3 text-center text-balance">
+            <h2 className="font-semibold text-4xl leading-tight max-w-lg">Who is it for?</h2>
+          </div>
+          <div className="grid grid-cols-3 gap-4 text-muted-foreground text-sm">
+            <div className="bg-accent flex items-center justify-center rounded-lg min-h-[200px]">
+              <p className="opacity-50">Group 1</p>
+            </div>
+            <div className="bg-accent flex items-center justify-center rounded-lg min-h-[200px]">
+              <p className="opacity-50">Group 2</p>
+            </div>
+            <div className="bg-accent flex items-center justify-center rounded-lg min-h-[200px]">
+              <p className="opacity-50">Group 3</p>
+            </div>
+          </div>
+        </section>
         <div ref={containerRef} className="min-h-[400vh]">
           <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
             <FlyingElement
@@ -268,43 +296,47 @@ export default function Home() {
             />
           </Marquee>
         </section>
-        <section className="dark bg-background text-foreground">
-          <div className="py-24 px-4 max-w-screen-xl mx-auto">
-            <div className="flex flex-col items-center w-full gap-3 text-center text-balance">
-              <h2 className="font-semibold text-4xl leading-tight max-w-lg">Leading AI Creatives that scale brands</h2>
-              <p className="text-muted-foreground max-w-lg">Equiping brand owners with a Creative volume to outperform the competiton, or supercharges inhouse Creative teams</p>
-            </div>
-          </div>
-          <div className="relative">
-            <div className="absolute inset-y-0 left-0 w-xs bg-gradient-to-r from-background to-transparent z-10"></div>
-            <div className="absolute inset-y-0 right-0 w-xs bg-gradient-to-l from-background to-transparent z-10"></div>
-            <Marquee reverse repeat={3} className="[--duration:120s]">
-              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_01.jpg" alt="AI Creatives" width={400} height={500} />
-              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_02.jpg" alt="AI Creatives" width={400} height={500} />
-              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_03.jpg" alt="AI Creatives" width={400} height={500} />
-              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_04.jpg" alt="AI Creatives" width={400} height={500} />
-              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_05.jpg" alt="AI Creatives" width={400} height={500} />
-              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_06.jpg" alt="AI Creatives" width={400} height={500} />
-            </Marquee>
-            <Marquee repeat={3} className="[--duration:120s]">
-              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_07.jpg" alt="AI Creatives" width={400} height={500} />
-              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_08.jpg" alt="AI Creatives" width={400} height={500} />
-              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_09.jpg" alt="AI Creatives" width={400} height={500} />
-              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_10.jpg" alt="AI Creatives" width={400} height={500} />
-              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_11.jpg" alt="AI Creatives" width={400} height={500} />
-              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_12.jpg" alt="AI Creatives" width={400} height={500} />
-            </Marquee>
-            <Marquee reverse repeat={3} className="[--duration:120s]">
-              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_13.jpg" alt="AI Creatives" width={400} height={500} />
-              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_14.jpg" alt="AI Creatives" width={400} height={500} />
-              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_15.jpg" alt="AI Creatives" width={400} height={500} />
-              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_16.jpg" alt="AI Creatives" width={400} height={500} />
-              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_17.jpg" alt="AI Creatives" width={400} height={500} />
-              <Image className="aspect-[4/5] rounded-xl max-w-[200px]" src="/img/ad/ad_18.jpg" alt="AI Creatives" width={400} height={500} />
-            </Marquee>
+        <section className="max-w-7xl mx-auto py-16 px-4 grid grid-cols-1 gap-4 text-muted-foreground text-sm">
+          <div className="bg-accent flex items-center justify-center rounded-lg min-h-[600px]">
+            <p className="opacity-50">Customer stories / real life examples with results</p>
           </div>
         </section>
-        <div className="min-h-screen"></div>
+        <AICreativesGallery />
+        <section className="max-w-7xl mx-auto py-16 px-4 grid grid-cols-1 gap-4 text-muted-foreground text-sm">
+          <div className="bg-accent flex items-center justify-center rounded-lg min-h-[800px]">
+            <p className="opacity-50">All your data cross your growth in one place</p>
+          </div>
+        </section>
+        <section className="max-w-7xl mx-auto py-16 px-4 grid grid-cols-1 gap-4 text-muted-foreground text-sm">
+          <div className="bg-accent flex items-center justify-center rounded-lg min-h-[800px]">
+            <p className="opacity-50">All your growth efforts into one administrative view</p>
+          </div>
+        </section>
+        <section className="max-w-7xl mx-auto py-16 px-4 grid grid-cols-1 gap-4 text-muted-foreground text-sm">
+          <div className="bg-accent flex items-center justify-center rounded-lg min-h-[800px]">
+            <p className="opacity-50">Product creation motion video loop</p>
+          </div>
+        </section>
+        <section className="max-w-7xl mx-auto py-16 px-4 grid grid-cols-1 gap-4 text-muted-foreground text-sm">
+          <div className="bg-accent flex items-center justify-center rounded-lg min-h-[800px]">
+            <p className="opacity-50">Partnerships</p>
+          </div>
+        </section>
+        <section className="max-w-7xl mx-auto py-16 px-4 grid grid-cols-1 gap-4 text-muted-foreground text-sm">
+          <div className="bg-accent flex items-center justify-center rounded-lg min-h-[800px]">
+            <p className="opacity-50">CTA module with image</p>
+          </div>
+        </section>
+        <section className="max-w-7xl mx-auto py-16 px-4 grid grid-cols-1 gap-4 text-muted-foreground text-sm">
+          <div className="bg-accent flex items-center justify-center rounded-lg min-h-[800px]">
+            <p className="opacity-50">FAQ</p>
+          </div>
+        </section>
+        <section className="max-w-7xl mx-auto py-16 px-4 grid grid-cols-1 gap-4 text-muted-foreground text-sm">
+          <div className="bg-accent flex items-center justify-center rounded-lg min-h-[800px]">
+            <p className="opacity-50">Footer</p>
+          </div>
+        </section>
       </main>
     </div>
   );

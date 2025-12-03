@@ -20,7 +20,7 @@ export function TestimonialCard({
   return (
     <div 
       className={cn(
-        "bg-white rounded-3xl p-8 flex flex-col gap-6 min-w-[400px] max-w-[400px]",
+        "bg-card rounded-3xl p-8 flex flex-col gap-6 min-w-[400px] max-w-[400px]",
         className
       )}
     >

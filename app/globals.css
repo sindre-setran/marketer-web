@@ -182,7 +182,24 @@
   * {
     @apply border-border outline-ring/50;
   }
+  
   body {
     @apply bg-background text-foreground;
+  }
+  
+  /* Only transition backgrounds for performance - text switches instantly */
+  body,
+  body * {
+    transition: background-color 0.5s ease-out;
+  }
+  
+  /* Prevent transition on animated elements and images */
+  [class*="motion-"],
+  [class*="animate-"],
+  img,
+  svg,
+  [style*="transform"],
+  [style*="opacity"] {
+    transition: none !important;
   }
 }

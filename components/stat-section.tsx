@@ -81,7 +81,7 @@ export function StatCard({
       style={gridStyle}
     >
       <div className="relative z-10">
-        <div className="font-semibold text-positive-foreground text-6xl mb-1 flex items-baseline">
+        <div className="font-semibold text-positive-foreground text-5xl mb-1 flex items-baseline">
           {prefix && <span>{prefix}</span>}
           <NumberTicker 
             value={value} 
