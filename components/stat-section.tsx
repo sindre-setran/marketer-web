@@ -1,6 +1,8 @@
 import React, { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import NumberTicker from "@/components/ui/number-ticker";
+import { SectionHeader } from "@/components/section-header";
+import { Section } from "@/components/section";
 
 interface StatSectionProps {
   title: string;
@@ -11,23 +13,20 @@ interface StatSectionProps {
 
 export function StatSection({ title, subheadline, children, className }: StatSectionProps) {
   return (
-    <section className={cn("py-24 px-4", className)}>
+    <Section className={cn("py-24 px-4", className)}>
       <div className="max-w-7xl mx-auto">
-        <div className="mb-12 text-center flex flex-col items-center">
-          <h2 className="font-semibold text-5xl leading-tight mb-3 max-w-2xl text-balance">
-            {title}
-          </h2>
-          {subheadline && (
-            <p className="text-muted-foreground text-lg max-w-2xl">
-              {subheadline}
-            </p>
-          )}
+        <div className="mb-12">
+          <SectionHeader 
+            title={title}
+            description={subheadline}
+            descriptionClassName="text-lg max-w-2xl"
+          />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 auto-rows-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-auto">
           {children}
         </div>
       </div>
-    </section>
+    </Section>
   );
 }
 

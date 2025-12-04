@@ -6,6 +6,7 @@ import { Marquee } from "@/components/ui/marquee";
 import { useTheme } from "@/components/theme-provider";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
+import { SectionHeader } from "@/components/section-header";
 
 interface AnimatedImageProps {
   src: string;
@@ -90,7 +91,7 @@ export function AICreativesGallery() {
   const { setTheme } = useTheme();
   const sectionRef = useRef<HTMLElement>(null);
 
-  useEffect(() => {
+  /*useEffect(() => {
     let timeoutId: NodeJS.Timeout;
     
     const observer = new IntersectionObserver(
@@ -125,19 +126,20 @@ export function AICreativesGallery() {
         observer.unobserve(currentSection);
       }
     };
-  }, [setTheme]);
+  }, [setTheme]);*/
 
   return (
     <section ref={sectionRef} className="bg-background text-foreground py-24">
       <div className="mb-12 px-4 max-w-screen-xl mx-auto">
-        <div className="flex flex-col items-center w-full gap-3 text-center text-balance">
-          <h2 className="font-semibold text-4xl leading-tight max-w-lg">Leading AI Creatives that scale brands</h2>
-          <p className="text-muted-foreground max-w-lg">Equiping brand owners with a Creative volume to outperform the competiton, or supercharges inhouse Creative teams</p>
-        </div>
+        <SectionHeader 
+          title="Leading AI Creatives that scale brands"
+          description="Equiping brand owners with a Creative volume to outperform the competiton, or supercharges inhouse Creative teams"
+          descriptionClassName="max-w-lg"
+        />
       </div>
       <div className="relative">
-        <div className="absolute inset-y-0 left-0 w-xs bg-gradient-to-r from-background to-transparent z-10 transition-colors duration-500"></div>
-        <div className="absolute inset-y-0 right-0 w-xs bg-gradient-to-l from-background to-transparent z-10 transition-colors duration-500"></div>
+        <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-background to-transparent z-10 transition-colors duration-500"></div>
+        <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-background to-transparent z-10 transition-colors duration-500"></div>
         <MarqueeRow reverse repeat={3}>
           <AnimatedImage src="/img/ad/ad_01.jpg" alt="AI Creatives" index={0} isVisible={false} />
           <AnimatedImage src="/img/ad/ad_02.jpg" alt="AI Creatives" index={1} isVisible={false} />

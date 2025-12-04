@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion, AnimatePresence, useScroll } from "motion/react";
 import { useRef, useState, useEffect } from "react";
+import { cn } from "@/lib/utils";
 
 export function FeatureShuffle() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -61,81 +62,113 @@ export function FeatureShuffle() {
   }, [scrollYProgress, currentImage]);
 
   return (
-    <div ref={containerRef} className="max-w-screen-xl mx-auto h-[200vh]">
-      <div className="flex gap-6 items-center sticky top-0 h-screen">
-        <div className="basis-1/2">
-          <div className="max-w-md space-y-4">
+    <motion.div 
+      ref={containerRef} 
+      className="h-[200vh] transition-colors duration-500 relative bg-muted"
+      /*animate={{ 
+        backgroundColor: currentImage === 1 ? '#01040F' : 'var(--muted)' 
+      }}
+      transition={{
+        backgroundColor: {
+          duration: 0.5,
+          delay: 0.25,
+          ease: "easeOut",
+        }
+      }}*/
+    >
+      <div className="relative sticky top-0 h-screen overflow-hidden">
+        <AnimatePresence>
+          {currentImage === 1 && (
+            <motion.div
+              className="absolute w-full aspect-square -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
+              initial={{
+                opacity: 0,
+                scale: 0,
+                backgroundColor: "#01040F",
+              }}
+              animate={{
+                opacity: 1,
+                scale: 2,
+                backgroundColor: "#01040F",
+              }}
+              exit={{
+                opacity: 0,
+                scale: 1,
+                backgroundColor: "#01040F",
+              }}
+              transition={{
+                duration: 0.5,
+                ease: "easeOut",
+                scale: {
+                  type: "spring" as const,
+                  stiffness: 100,
+                  damping: 30,
+                }
+              }}
+            ></motion.div>
+          )}
+        </AnimatePresence>
+        <div className="flex gap-6 items-center h-screen max-w-screen-xl mx-auto px-8">
+          <div className="basis-1/2">
             <AnimatePresence mode="wait">
-              <motion.h2 
-                key={`heading-${currentImage}`}
+              <motion.div 
+                key={currentImage}
                 {...textAnimationSettings}
-                transition={{
-                  ...textAnimationSettings.transition,
-                  delay: 0
-                }}
-                className="text-5xl font-semibold text-balance leading-tight"
+                className={cn("max-w-md space-y-4", currentImage === 1 && "dark")}
               >
-                {content[currentImage].heading}
-              </motion.h2>
+                <h2 className="text-5xl font-semibold text-balance text-foreground leading-tight">
+                  {content[currentImage].heading}
+                </h2>
+                <p className="text-foreground/50 text-lg">
+                  {content[currentImage].description}
+                </p>
+              </motion.div>
             </AnimatePresence>
-            <AnimatePresence mode="wait">
-              <motion.p 
-                key={`description-${currentImage}`}
-                {...textAnimationSettings}
-                transition={{
-                  ...textAnimationSettings.transition,
-                  delay: 0.1
-                }}
-                className="text-muted-foreground text-lg"
-              >
-                {content[currentImage].description}
-              </motion.p>
+          </div>
+          <div className="basis-1/2 relative">
+            <AnimatePresence mode="popLayout">
+              {currentImage === 0 ? (
+                <motion.div
+                  key="image"
+                  {...animationSettings}
+                  className="relative"
+                >
+                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-20">
+                    <Image 
+                      src="/img/ui-01.svg" 
+                      alt="Feature" 
+                      width={2048} 
+                      height={2560} 
+                    />
+                  </div>
+                  <Image 
+                    className="w-full rounded-3xl aspect-[4/5]" 
+                    src="/img/feature-01.jpg" 
+                    alt="Feature" 
+                    width={2048} 
+                    height={2560} 
+                  />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="filled-div"
+                  {...animationSettings}
+                  className="w-full aspect-[4/5] rounded-3xl bg-gradient-to-b from-[#020A22] to-[#010614] relative"
+                >
+                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-20">
+                    <Image 
+                      src="/img/ui-02.svg" 
+                      alt="Feature" 
+                      width={2048} 
+                      height={2560} 
+                    />
+                  </div>
+                </motion.div>
+              )}
             </AnimatePresence>
           </div>
         </div>
-        <div className="basis-1/2 relative">
-          <AnimatePresence mode="popLayout">
-            {currentImage === 0 ? (
-              <motion.div
-                key="image"
-                {...animationSettings}
-                className="relative"
-              >
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-20">
-                  <Image 
-                    src="/img/ui-01.svg" 
-                    alt="Feature" 
-                    width={2048} 
-                    height={2560} 
-                  />
-                </div>
-                <Image 
-                  className="w-full rounded-3xl aspect-[4/5]" 
-                  src="/img/feature-01.jpg" 
-                  alt="Feature" 
-                  width={2048} 
-                  height={2560} 
-                />
-              </motion.div>
-            ) : (
-              <motion.div
-                key="filled-div"
-                {...animationSettings}
-                className="w-full aspect-[4/5] rounded-3xl bg-gradient-to-b from-black to-[#020D2C] relative"
-              >
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-20">
-                  <Image 
-                    src="/img/ui-02.svg" 
-                    alt="Feature" 
-                    width={2048} 
-                    height={2560} 
-                  />
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

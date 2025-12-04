@@ -16,6 +16,10 @@ import { StatSection, StatCard } from "@/components/stat-section";
 import { TestimonialCard } from "@/components/testimonial-card";
 import { AICreativesGallery } from "@/components/ai-creatives-gallery";
 import Image from "next/image";
+import { SectionHeader } from "@/components/section-header";
+import { Section } from "@/components/section";
+import { Placeholder } from "@/components/placeholder";
+import { ResultCard } from "@/components/result-card";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -163,33 +167,20 @@ export default function Home() {
             </li>
           </ul>
         </div>
-        <section className="max-w-7xl mx-auto py-16 px-4 grid grid-cols-3 gap-4 text-muted-foreground text-sm">
-          <div className="bg-accent flex items-center justify-center rounded-lg min-h-[400px]">
-            <p className="opacity-50">Value Prop/Feature Showcase</p>
+        <Section>
+          <div className="grid grid-cols-3 gap-4">
+            <Placeholder>Value Prop/Feature Showcase</Placeholder>
+            <Placeholder>Value Prop/Feature Showcase</Placeholder>
+            <Placeholder>Value Prop/Feature Showcase</Placeholder>
           </div>
-          <div className="bg-accent flex items-center justify-center rounded-lg min-h-[400px]">
-            <p className="opacity-50">Value Prop/Feature Showcase</p>
+        </Section>
+        <Section title="Who is it for?">
+          <div className="grid grid-cols-3 gap-4">
+            <Placeholder className="min-h-[200px]">Group 1</Placeholder>
+            <Placeholder className="min-h-[200px]">Group 2</Placeholder>
+            <Placeholder className="min-h-[200px]">Group 3</Placeholder>
           </div>
-          <div className="bg-accent flex items-center justify-center rounded-lg min-h-[400px]">
-            <p className="opacity-50">Value Prop/Feature Showcase</p>
-          </div>
-        </section>
-        <section className="max-w-7xl mx-auto py-16 px-4 space-y-8">
-          <div className="flex flex-col items-center w-full gap-3 text-center text-balance">
-            <h2 className="font-semibold text-4xl leading-tight max-w-lg">Who is it for?</h2>
-          </div>
-          <div className="grid grid-cols-3 gap-4 text-muted-foreground text-sm">
-            <div className="bg-accent flex items-center justify-center rounded-lg min-h-[200px]">
-              <p className="opacity-50">Group 1</p>
-            </div>
-            <div className="bg-accent flex items-center justify-center rounded-lg min-h-[200px]">
-              <p className="opacity-50">Group 2</p>
-            </div>
-            <div className="bg-accent flex items-center justify-center rounded-lg min-h-[200px]">
-              <p className="opacity-50">Group 3</p>
-            </div>
-          </div>
-        </section>
+        </Section>
         <div ref={containerRef} className="min-h-[400vh]">
           <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
             <FlyingElement
@@ -227,52 +218,27 @@ export default function Home() {
           </div>
         </div>
         <FeatureShuffle />
-        
         <StatSection 
           title="Consilidate your growth into one platform"
           subheadline="Save time, cut costs and increase output"
         >
           <StatCard value={445} suffix="%" label="Creative output increase" col={1} row={1}>
-
           </StatCard>
-          
-          <StatCard value={90} suffix="%" label="Cut in wasted adspend" col={2} row={1} rowSpan={3}>
-            <div className="w-full p-4 flex items-center justify-center">
-              <svg className="max-w-[440px]" viewBox="0 0 448 448" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="224" cy="32" r="32" fill="#224E3E"/>
-                <circle cx="224" cy="416" r="32" fill="#224E3E"/>
-                <ellipse cx="416" cy="228" rx="32" ry="32" transform="rotate(90 416 228)" fill="#224E3E"/>
-                <ellipse cx="32" cy="228" rx="32" ry="32" transform="rotate(90 32 228)" fill="#BFE8CF"/>
-                <circle cx="320" cy="389.349" r="32" transform="rotate(150 320 389.349)" fill="#224E3E"/>
-                <circle cx="128" cy="56.795" r="32" transform="rotate(150 128 56.795)" fill="#BFE8CF"/>
-                <circle opacity="0.9" cx="128.249" cy="389.41" r="32" transform="rotate(-150 128.249 389.41)" fill="#224E3E"/>
-                <circle cx="320.249" cy="56.8565" r="32" transform="rotate(-150 320.249 56.8565)" fill="#224E3E"/>
-                <circle cx="57.7231" cy="320.536" r="32" transform="rotate(-120 57.7231 320.536)" fill="#224E3E"/>
-                <circle cx="390.277" cy="128.536" r="32" transform="rotate(-120 390.277 128.536)" fill="#224E3E"/>
-                <circle cx="57.7231" cy="128.536" r="32" transform="rotate(-60 57.7231 128.536)" fill="#BFE8CF"/>
-                <circle cx="390.277" cy="320.536" r="32" transform="rotate(-60 390.277 320.536)" fill="#224E3E"/>
-              </svg>
-            </div>
+          <StatCard value={90} suffix="%" label="Cut in wasted adspend" col={1} row={2}>
           </StatCard>
-          
-          <StatCard value={22} suffix="%" label="Average ROAS increase" col={1} row={2}>
-
+          <StatCard value={22} suffix="%" label="Average ROAS increase" col={2} row={1} rowSpan={2}>
           </StatCard>
-          <StatCard value={18} suffix=" hours" label="Saved on average per week" col={1} row={3}>
-            
+          <StatCard value={18} suffix=" hours" label="Saved on average per week" col={3} row={1} rowSpan={2}>
           </StatCard>
         </StatSection>
         
         {/* Testimonials Section */}
-        <section className="py-24 px-4 bg-muted">
-          <div className="max-w-7xl mx-auto mb-12 text-center">
-            <h2 className="font-semibold text-4xl leading-tight mb-3">
-              Trusted by growth teams worldwide
-            </h2>
-            <p className="text-muted-foreground">
-              See what our customers are saying about us
-            </p>
-          </div>
+        <Section 
+          className="py-24 bg-muted"
+          title="Trusted by growth teams worldwide"
+          description="See what our customers are saying about us"
+          containerClassName="space-y-12 max-w-none"
+        >
           <Marquee pauseOnHover className="[--duration:60s]">
             <TestimonialCard
               quote="I think AI is going to be the most important marketing decision. Any company can make and picking a company is essential... I like these guys a lot. It's going to be a really good mood for us."
@@ -295,48 +261,73 @@ export default function Home() {
               company="Beauty Brands Inc"
             />
           </Marquee>
-        </section>
-        <section className="max-w-7xl mx-auto py-16 px-4 grid grid-cols-1 gap-4 text-muted-foreground text-sm">
-          <div className="bg-accent flex items-center justify-center rounded-lg min-h-[600px]">
-            <p className="opacity-50">Customer stories / real life examples with results</p>
+        </Section>
+        <Section>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <ResultCard
+              preheading="Investment Watches"
+              heading="5x Revenue in 3 months"
+              description="Identified winning campaigns in under 2 weeks, then scaled with precision to 5x their revenue in 3 months."
+              image="/img/ad/ad_01.jpg"
+              colSpan={1}
+            />
+            <ResultCard
+              preheading="Aarja Health"
+              heading="Aarja Health's ROAS revival"
+              description="Revitalized their advertising strategy and achieved remarkable return on ad spend."
+              image="/img/ad/ad_02.jpg"
+              colSpan={2}
+            />
+            <ResultCard
+              preheading="Used in 100+ industries"
+              heading="Trusted across sectors"
+              description="Retail, Electronics, Well-being, Fashion, Beauty, Apparel, Food, Books, Fitness, Furniture, Appliances, Supplements, and more."
+              colSpan={1}
+              className="dark"
+            />
+            <ResultCard
+              heading="72%"
+              description="of brands cut creative production time with Marketer.com powered ads and Asset Library"
+              className="bg-primary text-foreground"
+              colSpan={1}
+            />
+            <ResultCard
+              heading="3x time saved"
+              description="Customers experience an average 3x efficiency increase and times saved on campaign management."
+              colSpan={1}
+              className="dark"
+            />
+            <ResultCard
+              preheading="Karen Kane"
+              heading="Karen Kane's AI-powered turnaround"
+              description="Transformed their marketing approach with AI-driven insights and automation, leading to significant growth."
+              image="/img/ad/ad_03.jpg"
+              colSpan={3}
+            />
           </div>
-        </section>
+        </Section>
         <AICreativesGallery />
-        <section className="max-w-7xl mx-auto py-16 px-4 grid grid-cols-1 gap-4 text-muted-foreground text-sm">
-          <div className="bg-accent flex items-center justify-center rounded-lg min-h-[800px]">
-            <p className="opacity-50">All your data cross your growth in one place</p>
-          </div>
-        </section>
-        <section className="max-w-7xl mx-auto py-16 px-4 grid grid-cols-1 gap-4 text-muted-foreground text-sm">
-          <div className="bg-accent flex items-center justify-center rounded-lg min-h-[800px]">
-            <p className="opacity-50">All your growth efforts into one administrative view</p>
-          </div>
-        </section>
-        <section className="max-w-7xl mx-auto py-16 px-4 grid grid-cols-1 gap-4 text-muted-foreground text-sm">
-          <div className="bg-accent flex items-center justify-center rounded-lg min-h-[800px]">
-            <p className="opacity-50">Product creation motion video loop</p>
-          </div>
-        </section>
-        <section className="max-w-7xl mx-auto py-16 px-4 grid grid-cols-1 gap-4 text-muted-foreground text-sm">
-          <div className="bg-accent flex items-center justify-center rounded-lg min-h-[800px]">
-            <p className="opacity-50">Partnerships</p>
-          </div>
-        </section>
-        <section className="max-w-7xl mx-auto py-16 px-4 grid grid-cols-1 gap-4 text-muted-foreground text-sm">
-          <div className="bg-accent flex items-center justify-center rounded-lg min-h-[800px]">
-            <p className="opacity-50">CTA module with image</p>
-          </div>
-        </section>
-        <section className="max-w-7xl mx-auto py-16 px-4 grid grid-cols-1 gap-4 text-muted-foreground text-sm">
-          <div className="bg-accent flex items-center justify-center rounded-lg min-h-[800px]">
-            <p className="opacity-50">FAQ</p>
-          </div>
-        </section>
-        <section className="max-w-7xl mx-auto py-16 px-4 grid grid-cols-1 gap-4 text-muted-foreground text-sm">
-          <div className="bg-accent flex items-center justify-center rounded-lg min-h-[800px]">
-            <p className="opacity-50">Footer</p>
-          </div>
-        </section>
+        <Section>
+          <Placeholder className="min-h-[800px]">All your data cross your growth in one place</Placeholder>
+        </Section>
+        <Section>
+          <Placeholder className="min-h-[800px]">All your growth efforts into one administrative view</Placeholder>
+        </Section>
+        <Section title="From Product to Creative" description="Produce tailored, high-performing ads and content automatically.">
+          <video src="https://cdn.marketer.com/v4/Product%20to%20creative%20Desktop.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover rounded-3xl" />
+        </Section>
+        <Section>
+          <Placeholder className="min-h-[800px]">Partnerships</Placeholder>
+        </Section>
+        <Section>
+          <Placeholder className="min-h-[800px]">CTA module with image</Placeholder>
+        </Section>
+        <Section>
+          <Placeholder className="min-h-[800px]">FAQ</Placeholder>
+        </Section>
+        <Section>
+          <Placeholder className="min-h-[800px]">Footer</Placeholder>
+        </Section>
       </main>
     </div>
   );
