@@ -57,17 +57,17 @@ export function SearchWrapper({ scrollYProgress }: SearchWrapperProps) {
             />
           </div>
           <div className="flex items-center justify-between">
-            <div className="flex gap-1.5 text-[#10214C]/60">
-              <button className="border border-[#285FF6]/10 rounded-lg size-8 flex items-center justify-center cursor-pointer hover:bg-[#285FF6]/10 transition-all duration-300">
+            <div className="flex gap-1.5 text-muted-foreground">
+              <button className="border border-foreground/10 rounded-lg size-8 flex items-center justify-center cursor-pointer hover:bg-[#285FF6]/10 transition-all duration-300">
                 <Package className="size-5" strokeWidth={1.5} />
               </button>
-              <button className="border border-[#285FF6]/10 rounded-lg size-8 flex items-center justify-center cursor-pointer hover:bg-[#285FF6]/10 transition-all duration-300">
+              <button className="border border-foreground/10 rounded-lg size-8 flex items-center justify-center cursor-pointer hover:bg-[#285FF6]/10 transition-all duration-300">
                 <Images className="size-4" />
               </button>
-              <button className="border border-[#285FF6]/10 rounded-lg size-8 flex items-center justify-center cursor-pointer hover:bg-[#285FF6]/10 transition-all duration-300">
+              <button className="border border-foreground/10 rounded-lg size-8 flex items-center justify-center cursor-pointer hover:bg-[#285FF6]/10 transition-all duration-300">
                 <Users className="size-4" />
               </button>
-              <button className="border border-[#285FF6]/10 rounded-lg size-8 flex items-center justify-center cursor-pointer hover:bg-[#285FF6]/10 transition-all duration-300">
+              <button className="border border-foreground/10 rounded-lg size-8 flex items-center justify-center cursor-pointer hover:bg-[#285FF6]/10 transition-all duration-300">
                 <Target className="size-4" />
               </button>
             </div>
