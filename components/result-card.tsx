@@ -40,7 +40,7 @@ export function ResultCard({
     >
       {/* Background Image */}
       {hasImage && (
-        <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 z-10">
           <Image
             src={image}
             alt={heading}
