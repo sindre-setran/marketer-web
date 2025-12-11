@@ -4,6 +4,7 @@ import { Header } from "@/components/sections/header";
 import Image from "next/image";
 import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
 import { motion } from "motion/react";
+import { FlyingElements } from "@/components/sections/flying-elements";
 
 export default function Home() {
 
@@ -133,6 +134,7 @@ export default function Home() {
             </motion.div>
           </div>
         </motion.div>
+        <FlyingElements />
       </main>
     </div>
   );

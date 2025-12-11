@@ -45,10 +45,10 @@ export function SearchWrapper({ scrollYProgress }: SearchWrapperProps) {
       </div>
       <motion.div 
         style={{ scale, opacity, filter }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg w-lg z-20 bg-[#F1F4FE]/70 backdrop-blur-sm p-1 rounded-[28px]"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg w-lg z-20 bg-card/70 backdrop-blur-sm p-1 rounded-[28px]"
       >
-        <div className="bg-white rounded-[24px] p-4 min-h-[150px] flex flex-col justify-between shadow-lg">
-          <div className="text-[#10214C]">
+        <div className="bg-card rounded-[24px] p-4 min-h-[150px] flex flex-col justify-between shadow-lg">
+          <div className="text-foreground">
             <TypingAnimation 
               deleteSpeed={30} 
               typeSpeed={60} 
