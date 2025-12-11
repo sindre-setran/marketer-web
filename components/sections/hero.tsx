@@ -3,14 +3,15 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { TrendingUp } from "lucide-react";
-import { motion, AnimatePresence, Transition } from "motion/react";
+import { motion, AnimatePresence, Transition, LayoutGroup, Variants } from "motion/react";
 import { useState, useEffect } from "react";
 import useMeasure from "react-use-measure";
 import { AnimatedShinyText } from "@/components/ui/animated-shiny-text";
+import { TextAnimate } from "@/components/ui/text-animate";
 
 export function Hero() {
-  const [isHovered, setIsHovered] = useState(false);
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [measureRef, bounds] = useMeasure();
   
   const texts = [
@@ -18,10 +19,35 @@ export function Hero() {
     "Claim your free AI-powered growth plan"
   ];
 
+  const words = ["online", "beauty", "fashion", "furniture", "wellness"];
+
   const layoutTransition = {
     type: "spring",
     stiffness: 600,
     damping: 55,
+  };
+
+  // Entry animation configuration
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: "30%" },
+    visible: {
+      opacity: 1,
+      y: "0%",
+      transition: {
+        duration: 0.75,
+        ease: "easeOut",
+        y: { type: "spring", stiffness: 400, damping: 55 },
+      },
+    },
   };
 
   // Icon (20px) + Gap (6px) + Padding left/right (14px + 16px = 30px) = 56px
@@ -36,14 +62,98 @@ export function Hero() {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentWordIndex((prev) => (prev + 1) % words.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="pt-52 pb-36 relative flex flex-col items-center gap-8">
-      <div className="flex flex-col items-center gap-2">
+    <motion.div 
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+      className="pt-52 pb-36 relative flex flex-col items-center gap-4"
+    >
+      <motion.h1 
+        variants={itemVariants as Variants}
+        className="font-semibold text-6xl text-center max-w-4xl mx-auto tracking-[-0.02em] leading-[1.1] transition-transform duration-500 ease-out text-balance order-2"
+      >
+        <LayoutGroup>
+          <span>
+            <motion.span 
+              layout="position"
+              transition={layoutTransition as Transition}
+              className="inline-block"
+            >
+              Sell more
+            </motion.span>
+            {" "}
+            <AnimatePresence initial={false} mode="wait">
+              <motion.span
+                key={currentWordIndex}
+                layout
+                transition={layoutTransition as Transition}
+                className="inline-block relative"
+              >
+                <TextAnimate
+                  animation="blurInUp"
+                  by="character"
+                  className="inline-block"
+                  startOnView={false}
+                >
+                  {words[currentWordIndex]}
+                </TextAnimate>
+              </motion.span>
+            </AnimatePresence>{" "}
+            <motion.span 
+              layout="position"
+              transition={layoutTransition as Transition}
+              className="inline-block"
+            >
+              faster
+            </motion.span>
+          </span>
+        </LayoutGroup>
+        <br />
+        & smarter than humans
+      </motion.h1>
+        <motion.p 
+          variants={itemVariants as Variants}
+          className="text-center text-muted-foreground max-w-lg mx-auto text-balance text-lg order-3"
+        >
+          <span>Join 1500+ Leading Shopify</span>
+          <span className="mx-1.5 -translate-y-0.5 inline-block">
+            <svg className="inline" width="22" height="auto" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19.8717 4.7133C19.8552 4.5933 19.75 4.52689 19.6632 4.51958C19.5765 4.51234 17.7413 4.37632 17.7413 4.37632C17.7413 4.37632 16.4667 3.11097 16.3268 2.97092C16.1869 2.83095 15.9135 2.87352 15.8074 2.90475C15.7918 2.90936 15.5289 2.99048 15.0941 3.12503C14.6684 1.89988 13.917 0.774015 12.5951 0.774015C12.5586 0.774015 12.521 0.775494 12.4835 0.777631C12.1075 0.280453 11.6418 0.0644531 11.2396 0.0644531C8.16026 0.0644531 6.68911 3.91391 6.22785 5.87007C5.0313 6.24084 4.18127 6.50443 4.0727 6.53854C3.40481 6.74804 3.38368 6.76908 3.29598 7.39843C3.22998 7.87489 1.48242 21.3896 1.48242 21.3896L15.0998 23.941L22.4781 22.3448C22.4781 22.3448 19.888 4.8333 19.8717 4.7133ZM14.3415 3.3578L13.1892 3.71443C13.1897 3.63322 13.1901 3.55333 13.1901 3.46596C13.1901 2.70454 13.0844 2.09147 12.9148 1.60547C13.5959 1.69095 14.0495 2.46593 14.3415 3.3578ZM12.0699 1.75645C12.2592 2.23095 12.3824 2.91191 12.3824 3.83081C12.3824 3.87782 12.382 3.92081 12.3815 3.96429C11.6322 4.1964 10.8179 4.4484 10.0018 4.70122C10.4601 2.93278 11.319 2.07864 12.0699 1.75645ZM11.155 0.890398C11.2879 0.890398 11.4218 0.935522 11.5499 1.02371C10.5631 1.4881 9.50524 2.65769 9.05853 4.99333L7.17749 5.57591C7.70072 3.7944 8.94322 0.890398 11.155 0.890398Z" fill="#95BF46"/>
+              <path d="M19.6643 4.51985C19.5776 4.51261 17.7424 4.37659 17.7424 4.37659C17.7424 4.37659 16.4678 3.11124 16.3279 2.97119C16.2756 2.91908 16.205 2.89237 16.1312 2.88086L15.1016 23.9411L22.4793 22.3451C22.4793 22.3451 19.8891 4.83357 19.8728 4.71357C19.8563 4.59357 19.7512 4.52716 19.6643 4.51985Z" fill="#5E8E3E"/>
+              <path d="M12.5953 8.59678L11.6855 11.303C11.6855 11.303 10.8884 10.8776 9.91129 10.8776C8.47885 10.8776 8.40677 11.7765 8.40677 12.0031C8.40677 13.2391 11.6287 13.7126 11.6287 16.6078C11.6287 18.8856 10.184 20.3523 8.23606 20.3523C5.89852 20.3523 4.70312 18.8975 4.70312 18.8975L5.32902 16.8295C5.32902 16.8295 6.55778 17.8845 7.59463 17.8845C8.27214 17.8845 8.54773 17.351 8.54773 16.9613C8.54773 15.349 5.90444 15.2771 5.90444 12.6278C5.90444 10.398 7.50488 8.24023 10.7355 8.24023C11.9803 8.24023 12.5953 8.59678 12.5953 8.59678Z" fill="white"/>
+            </svg>
+          </span>
+          <span>brands growing with AI today.</span>
+        </motion.p>
+        <motion.div 
+          variants={itemVariants as Variants}
+          className="flex items-center gap-2 pt-2 order-4"
+        >
+          <Button asChild size="xl">
+            <Link href="/book-demo">Book demo</Link>
+          </Button>
+          <Button asChild size="xl" variant="secondary">
+            <Link href="/book-demo">Get started</Link>
+          </Button>
+        </motion.div>
+      <motion.div 
+        variants={itemVariants as Variants}
+        className="flex flex-col items-center gap-2 order-1 mb-3"
+      >
         <Link href="/manta">
           <motion.div 
             animate={{ width: targetWidth }}
             transition={layoutTransition as Transition}
-            className="dark bg-[#1E1F24] text-foreground rounded-full shadow-manta overflow-hidden"
+            className="dark manta-dark bg-background text-foreground rounded-full shadow-manta overflow-hidden"
           >
             <div className="pl-3.5 pr-4 py-3 flex items-center gap-1.5">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">
@@ -77,24 +187,8 @@ export function Hero() {
             </div>
           </motion.div>
         </Link>
-      </div>
-      <div className="flex flex-col items-center gap-4">
-        <h1 className="font-semibold text-6xl text-center max-w-4xl mx-auto tracking-[-0.02em] leading-[1.1] transition-transform duration-500 ease-out text-balance">
-          Sell more, faster & smarter than humans 
-        </h1>
-        <p className="text-center text-muted-foreground max-w-lg mx-auto text-balance text-xl">
-          One solution for faster, smarter growth.
-        </p>
-        <div className="flex items-center gap-2 pt-2">
-          <Button asChild size="xl">
-            <Link href="/book-demo">Book demo</Link>
-          </Button>
-          <Button asChild size="xl" variant="secondary">
-            <Link href="/book-demo">Get started</Link>
-          </Button>
-        </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 
