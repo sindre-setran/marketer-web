@@ -26,11 +26,11 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-4 left-0 right-0 flex justify-center z-50">
+    <header className="fixed top-4 left-0 right-0 flex justify-center z-50">
       <motion.div
         layout
         transition={headerTransition as Transition}
-        className={cn("flex w-full mx-auto p-1 items-center justify-between bg-card/80 backdrop-blur-sm rounded-full transition-shadow duration-1000 ease-out",
+        className={cn("flex w-full mx-auto p-1 items-center justify-between bg-card/80 dark:bg-card/60 backdrop-blur-sm rounded-full transition-shadow duration-1000 ease-out",
         isScrolled ? "max-w-2xl shadow-lg" : "max-w-screen-lg shadow-none")}
       >
         <motion.div 
