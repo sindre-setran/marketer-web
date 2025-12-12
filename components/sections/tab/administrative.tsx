@@ -38,6 +38,7 @@ const ANIMATION_CONFIG = {
 // Timing configuration
 const TRANSITION_DURATION = 400;  // Fast transition between sequences (ms)
 const PAUSE_DURATION = 2000;      // Pause/hold time at each sequence (ms)
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const TOTAL_SEQUENCES = 3;
 
 export function Administrative() {
@@ -190,6 +191,7 @@ export function Administrative() {
           top: '50%',
           translateX: '-50%',
           translateY: '-50%',
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           pointerEvents: element2PointerEvents as any,
         }}
       >
@@ -237,6 +239,7 @@ export function Administrative() {
           top: '50%',
           translateX: '-50%',
           translateY: '-50%',
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           pointerEvents: element3PointerEvents as any,
         }}
       >
