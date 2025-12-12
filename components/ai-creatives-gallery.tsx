@@ -3,7 +3,6 @@
 import React from "react";
 import Image from "next/image";
 import { Marquee } from "@/components/ui/marquee";
-import { useTheme } from "@/components/theme-provider";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import { SectionHeader } from "@/components/section-header";
@@ -88,7 +87,6 @@ function MarqueeRow({ children, reverse, repeat = 3 }: MarqueeRowProps) {
 }
 
 export function AICreativesGallery() {
-  const { setTheme } = useTheme();
   const sectionRef = useRef<HTMLElement>(null);
 
   /*useEffect(() => {
