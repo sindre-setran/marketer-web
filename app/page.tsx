@@ -15,6 +15,7 @@ import { ProductToCreative } from "@/components/sections/product-to-creative";
 import { Section } from "@/components/section";
 import { Placeholder } from "@/components/placeholder";
 import { FeatureShuffle } from "@/components/feature-shuffle";
+import { TabsSection } from "@/components/sections/tabs-section";
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
 
@@ -43,9 +44,7 @@ export default function Home() {
         <Header />
         <Hero />
         <LogoMarquee />
-        <Section>
-          <Placeholder className="min-h-[600px]">Analytical, Administrative, Creative</Placeholder>
-        </Section>
+        <TabsSection />
         <FeatureGrid />
         <Section>
           <Placeholder className="min-h-[600px]">Why e-commerce brands are switching to Marketer.com</Placeholder>

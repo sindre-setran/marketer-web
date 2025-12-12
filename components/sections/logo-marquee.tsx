@@ -5,7 +5,7 @@ import LogoContainer from "@/components/logoContainer";
 
 export function LogoMarquee() {
   return (
-    <div className="mb-16 flex flex-col items-center gap-3 overflow-hidden">
+    <div className="mb-4 flex flex-col items-center gap-3 overflow-hidden">
       <div className="mx-auto inline-flex flex-col items-center gap-1.5 mb-1">
         <h2 className="text-xs font-medium text-muted-foreground">Official partners</h2>
         <ul className="flex items-center gap-1.5">
@@ -50,8 +50,8 @@ export function LogoMarquee() {
         <LogoContainer logo="moniker" />
         <LogoContainer logo="sweetProtection" />
       </Marquee>
-      <ul className="flex items-center gap-4 text-muted-foreground">
-        {/*<li className="flex items-center gap-1.5">
+      {/*<ul className="flex items-center gap-4 text-muted-foreground">
+        <li className="flex items-center gap-1.5">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M19.8717 4.7133C19.8552 4.5933 19.75 4.52689 19.6632 4.51958C19.5765 4.51234 17.7413 4.37632 17.7413 4.37632C17.7413 4.37632 16.4667 3.11097 16.3268 2.97092C16.1869 2.83095 15.9135 2.87352 15.8074 2.90475C15.7918 2.90936 15.5289 2.99048 15.0941 3.12503C14.6684 1.89988 13.917 0.774015 12.5951 0.774015C12.5586 0.774015 12.521 0.775494 12.4835 0.777631C12.1075 0.280453 11.6418 0.0644531 11.2396 0.0644531C8.16026 0.0644531 6.68911 3.91391 6.22785 5.87007C5.0313 6.24084 4.18127 6.50443 4.0727 6.53854C3.40481 6.74804 3.38368 6.76908 3.29598 7.39843C3.22998 7.87489 1.48242 21.3896 1.48242 21.3896L15.0998 23.941L22.4781 22.3448C22.4781 22.3448 19.888 4.8333 19.8717 4.7133ZM14.3415 3.3578L13.1892 3.71443C13.1897 3.63322 13.1901 3.55333 13.1901 3.46596C13.1901 2.70454 13.0844 2.09147 12.9148 1.60547C13.5959 1.69095 14.0495 2.46593 14.3415 3.3578ZM12.0699 1.75645C12.2592 2.23095 12.3824 2.91191 12.3824 3.83081C12.3824 3.87782 12.382 3.92081 12.3815 3.96429C11.6322 4.1964 10.8179 4.4484 10.0018 4.70122C10.4601 2.93278 11.319 2.07864 12.0699 1.75645ZM11.155 0.890398C11.2879 0.890398 11.4218 0.935522 11.5499 1.02371C10.5631 1.4881 9.50524 2.65769 9.05853 4.99333L7.17749 5.57591C7.70072 3.7944 8.94322 0.890398 11.155 0.890398Z" fill="#95BF46"/>
             <path d="M19.6643 4.51985C19.5776 4.51261 17.7424 4.37659 17.7424 4.37659C17.7424 4.37659 16.4678 3.11124 16.3279 2.97119C16.2756 2.91908 16.205 2.89237 16.1312 2.88086L15.1016 23.9411L22.4793 22.3451C22.4793 22.3451 19.8891 4.83357 19.8728 4.71357C19.8563 4.59357 19.7512 4.52716 19.6643 4.51985Z" fill="#5E8E3E"/>
@@ -59,11 +59,11 @@ export function LogoMarquee() {
           </svg>
           <p className="font-medium">1500+ Shopify App Installs</p>
         </li>
-        <li className="w-px h-3.5 bg-gray-300 rounded-full"></li>*/}
+        <li className="w-px h-3.5 bg-gray-300 rounded-full"></li>
         <li>
           <p className="font-medium">400+ marketing agencies replaced</p>
         </li>
-      </ul>
+      </ul>*/}
     </div>
   );
 }

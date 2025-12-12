@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 
 interface SectionHeaderProps {
-  title: string;
+  title?: string;
   description?: string;
   className?: string;
   titleClassName?: string;
@@ -20,12 +20,14 @@ export function SectionHeader({
       "flex flex-col items-center w-full gap-3 text-center text-balance",
       className
     )}>
-      <h2 className={cn(
-        "font-semibold text-4xl leading-tight max-w-lg",
-        titleClassName
-      )}>
-        {title}
-      </h2>
+      {title && (
+        <h2 className={cn(
+          "font-semibold text-4xl leading-tight max-w-lg",
+          titleClassName
+        )}>
+          {title}
+        </h2>
+      )}
       {description && (
         <p className={cn(
           "text-muted-foreground",

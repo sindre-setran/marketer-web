@@ -68,6 +68,8 @@
 
   --shadow-lg: 0 3px 24px -2px rgba(0, 0, 0, 0.04), 0 2px 8px -2px rgba(0, 0, 0, 0.04);
   --shadow-manta: 0 0 4px 0 rgba(146, 170, 240, 0.75), 0 0 40px 0 rgba(146, 170, 240, 0.4);
+  --shadow-ui: 0 8px 32px -3px rgba(0, 0, 0, 0.06), 0 4px 8px -4px rgba(0, 0, 0, 0.04);
+  --shadow-cursor: 0 1px 3px rgba(0, 0, 0, 0.35);
 
   --animate-blink-cursor: blink-cursor 1.2s step-end infinite;
   @keyframes blink-cursor {
