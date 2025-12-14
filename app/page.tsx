@@ -14,7 +14,9 @@ import { Creatives } from "@/components/sections/creatives";
 import { Section } from "@/components/section";
 import { Placeholder } from "@/components/placeholder";
 import { FeatureShuffle } from "@/components/feature-shuffle";
+import { FeatureShuffleAlt } from "@/components/feature-shuffle-alt";
 import { TabsSection } from "@/components/sections/tabs-section";
+import { ComparisonTable } from "@/components/sections/comparison-table";
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
 
@@ -45,18 +47,13 @@ export default function Home() {
         <LogoMarquee />
         <TabsSection />
         <FeatureGrid />
-        <Section>
-          <Placeholder className="min-h-[600px]">Why e-commerce brands are switching to Marketer.com</Placeholder>
-        </Section>
+        <ComparisonTable />
         <Section>
           <Placeholder className="min-h-[600px]">It is quick and easy to get started</Placeholder>
         </Section>
         <Creatives />
-        <Section>
-          <Placeholder className="min-h-[600px]">Ideal Customer Profile ♻️</Placeholder>
-        </Section>
         <Stats />
-        <FeatureShuffle />
+        <FeatureShuffleAlt />
         <Testimonials />
         <Results />
         <Section>

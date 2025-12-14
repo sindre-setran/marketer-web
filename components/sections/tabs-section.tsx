@@ -79,9 +79,9 @@ export function TabsSection() {
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
+              exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.3 }}
               className="w-full text-center"
             >

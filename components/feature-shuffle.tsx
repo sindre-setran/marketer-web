@@ -139,7 +139,7 @@ export function FeatureShuffle() {
             </>
           )}
         </AnimatePresence>
-        <div className="flex gap-6 items-center h-screen max-w-screen-xl mx-auto px-8">
+        <div className="flex gap-6 items-center h-screen max-w-screen-xl mx-auto px-4">
           <div className="basis-1/2">
             <AnimatePresence mode="wait">
               <motion.div 
