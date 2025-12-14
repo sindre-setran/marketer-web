@@ -30,7 +30,7 @@ export function Header() {
       <motion.div
         layout
         transition={headerTransition as Transition}
-        className={cn("flex w-full mx-auto p-1 items-center justify-between bg-card/80 dark:bg-card/60 backdrop-blur-sm rounded-full transition-shadow duration-1000 ease-out",
+        className={cn("flex w-full mx-auto p-1 items-center justify-between bg-card/90 dark:bg-card/60 backdrop-blur-sm rounded-full transition-shadow duration-1000 ease-out",
         isScrolled ? "max-w-2xl shadow-lg" : "max-w-screen-lg shadow-none")}
       >
         <motion.div 

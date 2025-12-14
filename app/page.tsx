@@ -73,7 +73,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               transition={{ ease: "easeOut", duration: 0.3, y: { type: "spring", stiffness: 600, damping: 55 } }}
-              className="p-4 sticky bottom-0 left-0 right-0 flex justify-end pointer-events-none dark z-50"
+              className="hidden sm:block p-4 sticky bottom-0 left-0 right-0 flex justify-end pointer-events-none dark z-50"
             >
               <div className="relative rounded-lg shadow-lg overflow-hidden">
                 <div className="absolute inset-0 flex items-center justify-center bg-black/50">

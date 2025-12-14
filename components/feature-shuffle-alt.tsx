@@ -3,11 +3,10 @@
 import Image from "next/image";
 import { motion, AnimatePresence, useScroll } from "motion/react";
 import { useRef, useState, useEffect } from "react";
-import { cn } from "@/lib/utils";
-import { Section } from "./section";
-import { SearchWrapper } from "./search-wrapper";
 import { TypingAnimation } from "./ui/typing-animation";
-import { Paperclip, Plus } from "lucide-react";
+import { Paperclip, Plus, CheckCircle, ArrowLeft, ArrowRight } from "lucide-react";
+import { Button } from "./ui/button";
+import Link from "next/link";
 
 export function FeatureShuffleAlt() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -44,11 +43,23 @@ export function FeatureShuffleAlt() {
   const content = [
     {
       heading: "It does the heavy lifting for you",
-      description: "All your marketing data, unified and understood by AI"
+      description: "All your marketing data, unified and understood by AI",
+      bullets: [
+        "Turn requests into action plans",
+        "Get clear, executable guidance",
+        "Auto-adjust budgets and audiences",
+        "Focus on outcomes, not dashboards"
+      ]
     },
     {
       heading: "And the seriously heavy lifting",
-      description: "Your data becomes context for actionable guidance"
+      description: "Your data becomes context for actionable guidance",
+      bullets: [
+        "Analyze store and marketing performance",
+        "Identify growth constraints and opportunities",
+        "Model scenarios over months, not days",
+        "Generate strategies and growth plans"
+      ]
     }
   ];
 
@@ -87,19 +98,37 @@ export function FeatureShuffleAlt() {
       <div className="relative sticky top-0 h-screen overflow-hidden z-20 px-8 py-20">
         <div className="h-full max-w-screen-xl mx-auto bg-background/90 relative overflow-hidden p-2 rounded-3xl backdrop-blur-md">
           <div className="flex gap-6 items-center h-full max-w-screen-xl mx-auto">
-            <div className="basis-2/5 p-8">
+            <div className="basis-2/5 p-6">
               <AnimatePresence mode="wait">
                 <motion.div 
                   key={currentImage}
                   {...textAnimationSettings}
-                  className={cn("max-w-md leading-tight text-3xl font-medium")}
+                  className="max-w-md space-y-4"
                 >
-                  <h2 className="text-foreground">
-                    {content[currentImage].heading}
-                  </h2>
-                  <p className="text-muted-foreground/80">
-                    {content[currentImage].description}
-                  </p>
+                  <div className="space-y-1.5">
+                    <h2 className="text-foreground leading-tight text-2xl font-medium">
+                      {content[currentImage].heading}
+                    </h2>
+                    <p className="text-muted-foreground">
+                      {content[currentImage].description}
+                    </p>
+                  </div>
+                  <ul className="text-muted-foreground space-y-1.5">
+                    {content[currentImage].bullets.map((bullet, index) => (
+                      <li key={index} className="flex gap-2">
+                        <CheckCircle className="size-4 w-4 block shrink-0 mt-1 pt-px" />
+                        <span className="block">{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex items-center gap-2 pt-2">
+                    <Button variant="manta" size="lg" asChild>
+                      <Link href="/manta">Download the Manta app</Link>
+                    </Button>
+                    <Button variant="outline" size="lg" asChild>
+                      <Link href="/solution">Explore our solution</Link>
+                    </Button>
+                  </div>
                 </motion.div>
               </AnimatePresence>
             </div>

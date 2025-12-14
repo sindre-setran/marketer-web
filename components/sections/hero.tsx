@@ -75,11 +75,11 @@ export function Hero() {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="pt-52 pb-36 relative flex flex-col items-center gap-4"
+      className="pt-48 sm:pt-52 pb-24 sm:pb-32 px-4 sm:px-8 relative flex flex-col items-center gap-3 sm:gap-4"
     >
       <motion.h1 
         variants={itemVariants as Variants}
-        className="font-semibold text-6xl text-center max-w-4xl mx-auto tracking-[-0.02em] leading-[1.1] transition-transform duration-500 ease-out text-balance order-2"
+        className="font-semibold text-4xl sm:text-6xl text-center max-w-4xl mx-auto tracking-[-0.02em] leading-[1.1] transition-transform duration-500 ease-out text-balance order-2"
       >
         <LayoutGroup>
           <span>
@@ -117,12 +117,11 @@ export function Hero() {
             </motion.span>
           </span>
         </LayoutGroup>
-        <br />
-        & smarter than humans
+        {" "} & smarter than humans
       </motion.h1>
         <motion.p 
           variants={itemVariants as Variants}
-          className="text-center text-muted-foreground max-w-lg mx-auto text-balance text-lg order-3"
+          className="text-center text-muted-foreground max-w-lg mx-auto text-balance text-lg order-3 leading-snug"
         >
           <span>Join 1500+ Leading Shopify</span>
           <span className="mx-1.5 -translate-y-0.5 inline-block">
@@ -147,7 +146,7 @@ export function Hero() {
         </motion.div>
       <motion.div 
         variants={itemVariants as Variants}
-        className="flex flex-col items-center gap-2 order-1 mb-3"
+        className="hidden sm:flex flex-col items-center gap-2 order-1 mb-3"
       >
         <Link href="/manta">
           <motion.div 

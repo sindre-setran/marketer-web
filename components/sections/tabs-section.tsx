@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { Section } from "@/components/section";
-import { SectionHeader } from "../section-header";
 import { DotPattern } from "../ui/dot-pattern";
 import { Administrative } from "./tab/administrative";
 import Lottie from "lottie-react";
@@ -85,14 +84,15 @@ export function TabsSection() {
               transition={{ duration: 0.3 }}
               className="w-full text-center"
             >
-              <SectionHeader
-                description={tabs[activeTab].description}
-                className="max-w-lg mx-auto"
-              />
+              <div className="flex flex-col items-center w-full gap-3 text-center text-balance">
+                <p className="text-muted-foreground max-w-lg">
+                  {tabs[activeTab].description}
+                </p>
+              </div>
             </motion.div>
           </AnimatePresence>
 
-          <div className="w-full aspect-video relative rounded-3xl overflow-hidden bg-muted flex flex-col items-center justify-center">
+          <div className="w-full aspect-square md:aspect-video relative rounded-3xl overflow-hidden bg-muted flex flex-col items-center justify-center">
             <AnimatePresence mode="popLayout">
               <motion.div
                 key={activeTab}

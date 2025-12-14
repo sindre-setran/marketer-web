@@ -5,7 +5,6 @@ import Image from "next/image";
 import { Marquee } from "@/components/ui/marquee";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
-import { SectionHeader } from "@/components/section-header";
 
 interface AnimatedImageProps {
   src: string;
@@ -127,13 +126,14 @@ export function AICreativesGallery() {
   }, [setTheme]);*/
 
   return (
-    <section ref={sectionRef} className="bg-background text-foreground py-24">
-      <div className="mb-12 px-4 max-w-screen-xl mx-auto">
-        <SectionHeader 
-          title="Leading AI Creatives that scale brands"
-          description="Equiping brand owners with a Creative volume to outperform the competiton, or supercharges inhouse Creative teams"
-          descriptionClassName="max-w-lg"
-        />
+    <section ref={sectionRef} className="bg-background text-foreground py-16">
+      <div className="mb-12 px-4 max-w-7xl mx-auto flex flex-col items-center w-full gap-3 text-center text-balance">
+        <h2 className="font-semibold text-4xl leading-tight max-w-lg">
+          Leading AI Creatives that scale brands
+        </h2>
+        <p className="text-muted-foreground max-w-lg">
+          Equiping brand owners with a Creative volume to outperform the competiton, or supercharges inhouse Creative teams
+        </p>
       </div>
       <div className="relative">
         <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-background to-transparent z-10 transition-colors duration-500"></div>
